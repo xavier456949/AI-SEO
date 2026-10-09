@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI SEO"
+  short_description: "Website SEO audits and AI search optimization"
+  default_prompt: "Use $seo to audit my website and prioritize improvements based on observed evidence."

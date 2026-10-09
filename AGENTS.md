@@ -1,5 +1,22 @@
 # Claude SEO: Multi-Platform Agent Instructions
 
+## ChatGPT and Codex support in this fork
+
+Install the OpenAI adaptation from this checkout with `python3 install-codex.py
+--setup` using Python 3.10+. See `docs/OPENAI.md`. The source entrypoint is
+`openai/seo/SKILL.md`; the installer bundles the existing workflows, references,
+scripts, and data into one self-contained `seo` skill. The source entrypoint is
+a build input, not a standalone installation directory.
+
+Use `$seo` or natural language. Resolve tools by their available capabilities;
+Claude-specific tool names, plugin variables, agent models, hooks, and extension
+installers are not automatically supported in OpenAI hosts. The generated bundle
+uses `python3 "<SEO_ROOT>/scripts/runtime.py"` as its managed runtime dispatcher.
+Use the actual absolute package path and an available Python 3.10+ interpreter.
+Keep Claude source workflows canonical and apply OpenAI packaging changes in
+the adapter and installer. Validate installer changes with
+`python3 -m unittest discover -s tests -p 'test_openai_install.py'`.
+
 > For **Cursor**, **Cursor Cloud Agents**, **Google Antigravity**, **Gemini CLI**,
 > **Grok Build**,
 > **OpenAI Codex CLI**, **Cline**, **Aider**, and any other agent harness that
@@ -30,7 +47,7 @@ descriptive comments) that other harnesses may ignore but do not reject.
 | **Google Antigravity** | Point the workspace at this repo root; Antigravity reads `AGENTS.md` first, falls back to `skills/`. |
 | **Gemini CLI** | `gemini init` in this repo loads `AGENTS.md`. Skills are activated via `activate_skill <name>` in conversation. |
 | **Grok Build** | Open this repository in Grok Build. It reads `AGENTS.md` and Claude Code compatible plugins and skills without a separate layout. Use `grok inspect` to verify discovery. See the [official compatibility guide](https://docs.x.ai/build/features/skills-plugins-marketplaces). |
-| **OpenAI Codex CLI** | Reads `AGENTS.md` from project root. Bash tools work as documented; some Claude-specific tool names (Read/Write/Edit) are aliased to Codex equivalents transparently. |
+| **ChatGPT / OpenAI Codex** | Use `install-codex.py` and the OpenAI entrypoint; see `docs/OPENAI.md`. Tools are selected by capability, not automatic name aliases. |
 | **Cline** | Loads `AGENTS.md` from project root. Skills appear as system messages; subagent delegation falls back to in-context expansion. |
 | **Aider** | Reads `AGENTS.md` if present; otherwise falls back to README. Aider does not support sub-agent dispatch; the seo-* skills run inline. |
 

@@ -1,6 +1,18 @@
 ![Claude SEO cover: a Claude Code command palette with /seo audit, schema, geo, content, and backlinks commands over a dark CRT panel](assets/cover.svg)
 
-# Claude SEO: SEO Skill for Claude Code
+# AI SEO: SEO Skills for Claude Code, ChatGPT, and Codex
+
+This fork adds an OpenAI skill bundle and a local installer while preserving the
+upstream Claude Code plugin. Install from **this checkout** for the OpenAI version:
+
+```bash
+python3 install-codex.py --setup
+```
+
+Use Python 3.10+ (prefer 3.11+) and then ask `$seo audit https://example.com`.
+See [ChatGPT and Codex setup](docs/OPENAI.md) for portable packaging, runtime
+diagnostics, tool limitations, and installation locations. The Claude installers
+below still download the upstream Claude release.
 
 **Claude SEO is an open-source SEO analysis plugin for [Claude Code](https://claude.ai/claude-code).** It runs 26 sub-skills and 19 specialist agents in parallel across technical SEO, content quality (E-E-A-T), Schema.org markup, AI search optimization (GEO), local SEO, e-commerce, and international SEO. Every audit produces a prioritized action plan with testable recommendations grounded in primary-source guidance from Google.
 
